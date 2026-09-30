@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Welcome to Smart Campus 👋</h1>
+
+    <p class="subtitle">
+        Smart Campus Complaint Management
+    </p>
+
+    <div class="form-card">
+
+        <h2>Student Dashboard</h2>
+
+        <p>What would you like to do?</p>
+
+        <a href="/submit">
+            <button type="button">
+                Submit Complaint
+            </button>
+        </a>
+
+        <br><br>
+
+        <a href="/my_complaints">
+            <button type="button">
+                My Complaints
+            </button>
+        </a>
+
+        <br><br>
+
+        <a href="/logout">
+            <button type="button">
+                Logout
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

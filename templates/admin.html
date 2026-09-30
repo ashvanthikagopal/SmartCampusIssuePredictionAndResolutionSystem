@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <h1>Smart Campus Admin Dashboard</h1>
+
+    <p class="subtitle">
+        Complaint Monitoring & Resolution
+    </p>
+
+    <div class="table-card">
+
+        <h2>All Complaints</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Complaint</th>
+                    <th>Category</th>
+                    <th>Severity</th>
+                    <th>Department</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for complaint in complaints %}
+
+                <tr>
+
+                    <td>
+                        CMP{{ "%05d"|format(complaint[0]) }}
+                    </td>
+
+                    <td>
+                        {{ complaint[4] }}
+                    </td>
+
+                    <td>
+                        {{ complaint[5] }}
+                    </td>
+
+                    <td>
+                        {{ complaint[6] }}
+                    </td>
+
+                    <td>
+                        {{ complaint[7] }}
+                    </td>
+
+                    <td>
+                        {{ complaint[8] }}
+                    </td>
+
+                    <td>
+
+                        <form action="/update_status"
+                              method="POST"
+                              class="status-form">
+
+                            <input type="hidden"
+                                   name="complaint_id"
+                                   value="{{ complaint[0] }}">
+
+                            <select name="status">
+
+                                <option value="Pending"
+                                    {% if complaint[8] == "Pending" %}selected{% endif %}>
+                                    Pending
+                                </option>
+
+                                <option value="In Progress"
+                                    {% if complaint[8] == "In Progress" %}selected{% endif %}>
+                                    In Progress
+                                </option>
+
+                                <option value="Resolved"
+                                    {% if complaint[8] == "Resolved" %}selected{% endif %}>
+                                    Resolved
+                                </option>
+
+                            </select>
+
+                            <button type="submit" class="update-button">
+                                Update
+                            </button>
+
+                        </form>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

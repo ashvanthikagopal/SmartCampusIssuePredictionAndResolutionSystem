@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Campus Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Smart Campus</h1>
+
+    <p class="subtitle">
+        Campus Complaint Management System
+    </p>
+
+    <div class="form-card">
+
+        <h2>Login</h2>
+
+        <form action="/login" method="POST">
+
+            <label>Email</label>
+
+            <input type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   required>
+
+            <label>Password</label>
+
+            <input type="password"
+                   name="password"
+                   placeholder="Enter your password"
+                   required>
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <p>
+            New student?
+            <a href="/register">Create an account</a>
+        </p>
+
+        <p>
+            <a href="/admin-login">Admin Login</a>
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

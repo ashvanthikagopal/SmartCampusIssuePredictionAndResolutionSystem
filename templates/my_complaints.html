@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Complaints</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>My Complaints</h1>
+
+    <p class="subtitle">
+        View and track your submitted complaints
+    </p>
+
+    {% if complaints %}
+
+        {% for complaint in complaints %}
+
+        <div class="form-card">
+
+            <h2>
+                CMP{{ "%05d"|format(complaint[0]) }}
+            </h2>
+
+            <p>
+                <strong>Complaint:</strong>
+                {{ complaint[4] }}
+            </p>
+
+            <p>
+                <strong>Category:</strong>
+                {{ complaint[5] }}
+            </p>
+
+            <p>
+                <strong>Severity:</strong>
+                {{ complaint[6] }}
+            </p>
+
+            <p>
+                <strong>Department:</strong>
+                {{ complaint[7] }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                {{ complaint[8] }}
+            </p>
+
+            <a href="/track?complaint_id={{ complaint[0] }}">
+                <button type="button">
+                    Track Complaint
+                </button>
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="form-card">
+            <h2>No Complaints Yet</h2>
+            <p>You have not submitted any complaints.</p>
+        </div>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/dashboard">
+        <button type="button">
+            Back to Dashboard
+        </button>
+    </a>
+
+</div>
+
+</body>
+
+</html>

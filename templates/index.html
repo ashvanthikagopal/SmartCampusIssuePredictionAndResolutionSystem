@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Campus Complaint System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Smart Campus</h1>
+        <p class="subtitle">Campus Complaint Prediction & Resolution</p>
+
+        <div class="card">
+
+            <h2>Submit a Complaint</h2>
+
+            <form action="/predict" method="POST">
+
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name"
+                       placeholder="Enter your name" required>
+
+                <label for="block">Campus Block</label>
+                <input type="text" id="block" name="block"
+                       placeholder="Example: Block A" required>
+
+                <label for="floor">Floor</label>
+                <input type="number" id="floor" name="floor"
+                       placeholder="Enter floor number" required>
+
+                <label for="complaint">Complaint Description</label>
+                <textarea id="complaint" name="complaint"
+                          placeholder="Describe your complaint..."
+                          rows="5" required></textarea>
+
+                <button type="submit">Submit Complaint</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

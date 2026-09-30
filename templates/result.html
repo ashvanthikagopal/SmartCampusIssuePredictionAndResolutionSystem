@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Complaint Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Complaint Analysis</h1>
+
+    <p class="subtitle">
+        Smart Campus Prediction & Resolution
+    </p>
+
+    <div class="card">
+
+        <h2>Complaint Submitted ✓</h2>
+        <label>Complaint ID</label>
+
+        <div class="prediction">
+            CMP{{ "%05d"|format(complaint_id) }}
+        </div>
+
+        <label>Complaint</label>
+
+        <div class="result-box">
+            {{ complaint }}
+        </div>
+
+
+        <label>Predicted Category</label>
+
+        <div class="prediction">
+            {{ category }}
+        </div>
+
+
+        <label>Severity</label>
+
+        <div class="info-box">
+            {{ severity }}
+        </div>
+
+
+        <label>Assigned Department</label>
+
+        <div class="info-box">
+            {{ department }}
+        </div>
+
+
+        <label>Status</label>
+
+        <div class="info-box">
+            Pending
+        </div>
+
+
+        <label>Suggested Resolution</label>
+
+        <div class="result-box">
+            {{ resolution }}
+        </div>
+
+
+        <a href="/" class="back-button">
+            Submit Another Complaint
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

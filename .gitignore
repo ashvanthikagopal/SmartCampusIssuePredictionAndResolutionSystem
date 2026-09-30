@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local database and SQLite sidecar files
+complaints.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Local logs and generated results
+*.log
